@@ -117,6 +117,21 @@
 #comment_form,#blogTitle {
 	display: none;
 }
+body
+{
+background:#fff;
+//background:#a9d06b;
+background-image: url("http://luxiaoyou.github.io/todo/images/light-wool-bg.png");
+//background-image: url("http://bingimage.sinaapp.com");
+//background-repeat: no-repeat;
+//background-attachment:fixed;
+//background-size:cover;
+//background-position:center;
+}
+body a
+{
+color:#000;
+}
 body {
 	color: #333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
