@@ -1,0 +1,154 @@
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+.day {
+	margin: 1em 2em 20px 20px;
+	min-height: 10px;
+	padding-bottom: 5px;
+}
+* {
+	box-sizing: border-box;
+}
+* {
+	outline: medium none !important;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+#mainContent {
+	word-break: break-all;
+}
+#main {
+	text-align: left;
+}
+.container {
+	text-align: justify;
+}
+.day {
+	margin: 1em 2em 20px 20px;
+	min-height: 10px;
+	padding-bottom: 5px;
+}
+.dayTitle {
+	color: #666;
+	float: right;
+	font-size: 110%;
+	font-weight: bold;
+	line-height: 1.5em;
+	margin-bottom: 10px;
+	margin-top: 3px;
+	position: relative;
+	top: 40px;
+}
+.postTitle {
+	border-bottom: 1px solid #e0e0e0;
+	border-left: 5px solid #1fa6e6;
+	clear: both;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 1.5em;
+	padding: 0 100px 10px 20px;
+}
+.postTitle a:link,
+.postTitle a:visited,
+.postTitle a:active {
+	color: #1c7791;
+}
+.postTitle a:hover {
+	color: #f60;
+	text-decoration: none;
+}
+.postCon {
+	clear: both;
+	float: right;
+	line-height: 1.5em;
+	padding: 10px 0;
+	width: 95%;
+}
+.postDesc {
+	clear: both;
+	color: #a3a3a3;
+	float: none;
+	padding-right: 5px;
+	text-align: right;
+}
+.postDesc a:link,
+.postDesc a:visited,
+.postDesc a:active {
+	color: #a3a3a3;
+}
+.postDesc a:hover {
+	color: #f60;
+	text-decoration: none;
+}
+.postSeparator {
+	clear: both;
+	float: right;
+	height: 1px;
+	margin: 0 auto 5em;
+}
+.topicListFooter {
+	margin-top: 5em;
+}
+#navigator {
+	display: none;
+}
+#comment_form,#blogTitle {
+	display: none;
+}
+body {
+	color: #333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857;
+}
+body {
+	text-align: start;
+}
+body {
+	color: #2c3f51;
+	font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;
+	font-size: 15px;
+	line-height: 1.45;
+}
+body {
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+html {
+	font-size: 10px;
+}
+html {
+	font-family: sans-serif;
+}
+html {
+	font-size: 62.5%;
+}
+html {
+	font-family: sans-serif;
+}

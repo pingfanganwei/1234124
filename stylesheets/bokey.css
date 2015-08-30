@@ -1,0 +1,75 @@
+
+*::after, *::before {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+*::after, *::before {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+.day {
+    margin: 1em 2em 20px 20px;
+    min-height: 10px;
+    padding-bottom: 5px;
+}
+* {
+    box-sizing: border-box;
+}
+* {
+    outline: medium none !important;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+#mainContent {
+    word-break: break-all;
+}
+#main {
+    text-align: left;
+}
+.container {
+    text-align: justify;
+}
+body {
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+body {
+    text-align: start;
+}
+body {
+    color: #2c3f51;
+    font-family: "Helvetica Neue",Arial,"Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",SimSun,Song,sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+}
+body {
+    color: #000;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+body {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+html {
+    font-size: 10px;
+}
+html {
+    font-family: sans-serif;
+}
+html {
+    font-size: 62.5%;
+}
+html {
+    font-family: sans-serif;
+}
