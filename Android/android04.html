@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>android04</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'></head><body><div id='preview-contents' class='note-content'>
+                        <div id="wmd-preview" class="preview-content"></div>
+                    <div id="wmd-preview-section-326" class="wmd-preview-section preview-content">
+
+</div><div id="wmd-preview-section-543" class="wmd-preview-section preview-content">
+
+<h1 id="android04">android04</h1>
+
+<p></p>
+
+<hr>
+
+<p>1.制作界面 <br>
+2.在写<code>Activity</code>.</p></div><div id="wmd-preview-section-328" class="wmd-preview-section preview-content">
+
+<h3 id="logcat"><strong>Logcat</strong></h3>
+
+<blockquote>
+  <p><code>LayoutInflate</code>把Xml转换纯成View的工具。</p>
+</blockquote>
+
+<p>自定义吐司</p>
+
+<blockquote>
+  <p><code>LayoutParams.LayoutParams</code>布局参数。设计宽高</p>
+</blockquote>
+
+</div><div id="wmd-preview-section-329" class="wmd-preview-section preview-content">
+
+<h3 id="读源码心得">　<strong>读源码心得</strong></h3>
+
+<p>1.<code>LinearLayout</code>是<code>ViewGroup</code>的子类。而布局参数<code>LayoutParams</code>是一个静态类，主要是用来设计各个 控件的长宽高，根据不同类继承。每个特定的布局类有自己同的属性，所以在封装的时候类也会不同。</p>
+
+<p>1.中午写完自定义toast界面在睡觉；</p>
+
+</div><div id="wmd-preview-section-330" class="wmd-preview-section preview-content">
+
+<h3 id="问题"><strong>问题</strong></h3>
+
+<ol><li>适配器里适配的是哪个控件的属性？完成</li>
+<li>对话框练习,墙纸的更换;完成</li>
+<li>稀疏布尔数组是什么玩意?<strong>完不成。</strong></li>
+<li><code>Toast</code>自定义界面。完成</li>
+<li>对话框的练习？完成</li>
+<li>工厂设计模式；完成</li>
+<li><code>getResources()</code>方法的作用 完成</li>
+</ol>
+
+</div><div id="wmd-preview-section-331" class="wmd-preview-section preview-content">
+
+<h3 id="解决问题">解决问题：</h3>
+
+<ul><li><strong>7. <code>getResources()</code>方法的作用</strong></li>
+</ul>
+
+<blockquote>
+  <p>资源包 <code>package android.content.res;</code>在安卓里面所属的是这样的资源包，而<code>getResources()</code>方法在<code>ContextThemeWrapper</code>类里面重写了该方法，重要的是一个<code>Activity</code>继承并且实现了如下的类</p>
+</blockquote>
+
+</div><div id="wmd-preview-section-332" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs">    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Activity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ContextThemeWrapper</span><br>        <span class="hljs-keyword">implements</span> <span class="hljs-title">LayoutInflater</span>.<span class="hljs-title">Factory2</span>,<br>        <span class="hljs-title">Window</span>.<span class="hljs-title">Callback</span>, <span class="hljs-title">KeyEvent</span>.<span class="hljs-title">Callback</span>,<br>        <span class="hljs-title">OnCreateContextMenuListener</span>,<span class="hljs-title">ComponentCallbacks2</span>,<br>        <span class="hljs-title">Window</span>.<span class="hljs-title">OnWindowDismissedCallback</span> </span><br></code></pre>
+
+<p>而当中的<code>ContextThemeWrapper</code>该方法</p>
+
+<ul><li><p><strong>工厂设计模式</strong>； <br>
+就是内部创建一个工厂类，用来初始化该类，通过工厂类来初始化该类的对象。</p></li>
+<li><p><strong>2.墙纸的更换</strong></p></li>
+</ul>
+
+</div><div id="wmd-preview-section-333" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs">&lt;!-- 设置手机壁纸，需要权限 --&gt;<br>    &lt;uses-permission android:name=<span class="hljs-string">"android.permission.SET_WALLPAPER"</span>/&gt;<br><span class="hljs-javadoc">/**<br>     * 一个长按修改手机壁纸的方法。<br>     */</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPaper</span><span class="hljs-params">()</span><br>    </span>{<br>        <span class="hljs-comment">// 获取到控件，</span><br>        <span class="hljs-keyword">final</span> ImageView bgimg_tv = (ImageView) findViewById(R.id.bgimg_tv);<br>        <span class="hljs-comment">// 设置监听事件</span><br>        bgimg_tv.setOnLongClickListener(<span class="hljs-keyword">new</span> View.OnLongClickListener()<br>        {<br><br>            <span class="hljs-annotation">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onLongClick</span><span class="hljs-params">(View v)</span><br>            </span>{<br>                <span class="hljs-comment">// 通过图片控件前景图片属性来设置手机壁纸</span><br><br>                System.out.println(<span class="hljs-string">"长按触摸监听"</span>);<br>                <span class="hljs-keyword">try</span><br><br>                <span class="hljs-javadoc">/**<br>                 * 、 Drawable :可绘制的资源，包含 Bitmap、图层，可绘制的颜色资源等，它是一个抽象类<br>                 * <br>                 */</span><br>                { <span class="hljs-comment">// 清除手机壁纸</span><br>                    clearWallpaper();<br>                    <span class="hljs-comment">// getDrawable获取到的全景图片</span><br>                    Drawable drawable = bgimg_tv.getDrawable();<br>                    <span class="hljs-comment">// 位图对形象</span><br>                    BitmapDrawable bitmapDra = (BitmapDrawable) drawable;<br>                    <span class="hljs-comment">// bitmap是一个位图格式，如bigMap等等。</span><br>                    Bitmap bitmap = bitmapDra.getBitmap();<br>                    setWallpaper(bitmap);<br><br>                } <span class="hljs-keyword">catch</span> (IOException e)<br>                {<br><br>                    e.printStackTrace();<br>                }<br><br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>                <span class="hljs-comment">// 如果返回</span><br>            }<br>        });<br>    }<br></code></pre>
+
+<ul><li><strong>4. <code>Toast</code>自定义界面。</strong></li>
+</ul>
+
+</div><div id="wmd-preview-section-334" class="wmd-preview-section preview-content">
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"> * 自己定义一个xml界面<br>     */<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showXmlLayout</span><span class="hljs-params">(View v)</span><br>    </span>{<br>        <span class="hljs-javadoc">/**<br>         * 想要吐出一个界面：用xml布局的。 设计出要吐出的界面。 resoure : 我们要加载的xml文件的资源id root:<br>         * 是否要加入的到父控件当中<br>         */</span><br><br>        View layoutView = LayoutInflater.from(context).inflate(R.layout.toast_layout, <span class="hljs-keyword">null</span>);<br><br>        <span class="hljs-comment">// 设置文本的参数 设置加载文本文件的参数，必须通过LayoutView获取。</span><br>        TextView textView = (TextView) layoutView.findViewById(R.id.title_tv);<br>        textView.setText(<span class="hljs-string">"你怎么看待这个问题！"</span>);<br><br>        <span class="hljs-comment">// 创建toast对象，</span><br>        Toast toast = <span class="hljs-keyword">new</span> Toast(context);<br>        <span class="hljs-comment">// 把要Toast的布局文件放到toast的对象中</span><br>        toast.setView(layoutView);<br>        toast.setDuration(toast.LENGTH_SHORT);<br>        toast.setGravity(Gravity.TOP, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>);<br>        toast.show();<br><br>    }<br></code></pre>
+
+<p>### <strong>脑洞大开</strong></p>
+
+<ul><li>一定要有目的有机会的去学习编程。这样写程序会更快许多。</li>
+ - 
+</ul></div><div id="wmd-preview-section-footnotes" class="preview-content"></div></div></body></html>

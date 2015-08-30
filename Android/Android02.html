@@ -12,10 +12,10 @@
 		<link rel="icon" href="http://v3.bootcss.com/favicon.ico">
 
 		<title>Xiao bailong</title>
-		<link rel="stylesheet" type="text/css" href="stylesheets/mackdownCss.css" />
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mackdownCss.css" />
 		<!-- Bootstrap core CSS -->
 		<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
+		<!--<link rel="stylesheet" type="text/css" href="stylesheets/mackdownCss.css"/>-->
 		<!-- Custom styles for this template -->
 		<link href="http://v3.bootcss.com/examples/starter-template/starter-template.css" rel="stylesheet">
 
@@ -253,13 +253,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="Xiaobailong.html">Xiao bailong</a>
+					<a class="navbar-brand" href="../Xiaobailong.html">Xiao bailong</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="Item.html">目录</a></li>
+						<li class="active"><a href="../Item.html">目录</a></li>
 						<li><a href="#">---</a></li>
-						<li><a href="About.html">About</a></li>
+						<li><a href="../About.html">About</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -268,7 +268,91 @@
 		<!-- 播客主体-->
 
 		<div class="container" style="width: 800px ;">
+			<div id='preview-contents' class='note-content'>
+				<div id="wmd-preview" class="preview-content"></div>
+				<div id="wmd-preview-section-1" class="wmd-preview-section preview-content">
 
+				</div>
+				<div id="wmd-preview-section-157" class="wmd-preview-section preview-content">
+
+					<h1 id="android02">Android02</h1>
+
+					<hr>
+
+					<ul>
+						<li><code>CompoundButtion</code>：复合按钮，抽象类，子类：<code>checkBox</code>,<code>RadioButton</code>,<code>ToggleButton</code>.</li>
+						<li>
+							<br>
+							<ul>
+								<li><code>Spinner</code>, 接口：<code>AdapterView.onTtemSelectdcListener</code>;</li>
+							</ul>
+						</li>
+						<li>触摸：<code>View</code>,接口：<code>onTouchListener()</code>;</li>
+						<li>滚屏视图: <code>ScrollView</code> </li>
+						<li>按键事件：</li>
+					</ul>
+				</div>
+				<div id="wmd-preview-section-80" class="wmd-preview-section preview-content">
+
+					<h3 id="选择器的使用">选择器的使用：</h3>
+
+					<p>我用到的是颜色选择器，和图片选择器。</p>
+
+					<ul>
+						<li>图片选择器： 我们在资源文件里面定义的
+							<br>
+							<code>xml <br>
+&lt;selector xmlns:android="http://schemas.android.com/apk/res/android" &gt; <br>
+&lt;item android:state_pressed="true" android:drawable="@drawable/ic_launcher"&gt;&lt;/item&gt; <br>
+&lt;item android:state_checked="true" android:drawable="@drawable/ic_launcher"&gt;&lt;/item&gt; <br>
+&lt;item android:drawable="@drawable/s"&gt;&lt;/item&gt; <br>
+&lt;/selector&gt; <br>
+</code>
+							<br> 会根据不同的情况设置不同的属性，在R。java里面就创建了相应的id。注意：这里创建的是文件名的id哦
+						</li>
+					</ul>
+
+				</div>
+				<div id="wmd-preview-section-81" class="wmd-preview-section preview-content">
+
+					<h3 id="listview-他的父类adapterview"><code>ListView</code> 他的父类:<code>AdapterView</code></h3>
+
+					<pre class="prettyprint hljs-dark"><code class="hljs">动态布局：用Adapter（适配器）<br><br></code></pre>
+
+					<ul>
+						<li><strong>适配器</strong></li>
+						<li>1.创建布局</li>
+						<li>2.初始化一个数据</li>
+						<li>3.配置适配器。
+							<br> 不同的条件我们使用的适配器是不同的。所以要根据具体的情况来选择适配器。适配器的所有父类是
+							<code>abstract class BaseAdapter</code> 我查看源码时。下面有4个实现类。我们可以初始化。然后根据不同的够着函数。来初始化数据；</li>
+					</ul>
+
+				</div>
+				<div id="wmd-preview-section-82" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span><br>    </span>{<br><br>        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);<br>        setContentView(R.layout.listview_list);<br><br>        <span class="hljs-comment">// 创建填充模型</span><br>        <span class="hljs-keyword">final</span> List&lt;Map&lt;String, Object&gt;&gt; data = <span class="hljs-keyword">new</span> ArrayList&lt;Map&lt;String, Object&gt;&gt;();<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)<br>        {<br>            HashMap&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;String, Object&gt;();<br>            map.put(<span class="hljs-string">"icon"</span>, R.drawable.emoji_095 + i);<br>            map.put(<span class="hljs-string">"name"</span>, <span class="hljs-string">"name"</span> + <span class="hljs-number">1</span>);<br>            data.add(map);<br>        }<br>        <span class="hljs-javadoc">/**<br>         * 用ListView展示结构相同的批量数据实现步骤： 1. 列表项布局 2. 初始数据 List&lt;Map&gt; 3. 适配器 Adapter<br>         * 4. ListView设置适配器 ，展示列表项 5. 监听列表项<br>         */</span><br><br>        <span class="hljs-javadoc">/**<br>         * 简单适配器 context:上下文 data：要装配到列表项中的数据 resource：列表项的布局的资源id from:数据从哪里来<br>         * data 从map中的相应的key中来 to ：数据填充到哪个控件中去：<br>         */</span><br><br>        String[] from = { <span class="hljs-string">"icon"</span>, <span class="hljs-string">"name"</span> };<br>        <span class="hljs-keyword">int</span>[] to = { R.id.icon_iv, R.id.name_tv };<br>        SimpleAdapter simpleAdapter = <span class="hljs-keyword">new</span> SimpleAdapter(<span class="hljs-keyword">this</span>, data, R.layout.app_item, from, to);<br><br>        <span class="hljs-comment">// 获取要展示的数据</span><br>        GridView listView = (GridView) findViewById(R.id.app_listView);<br><br>        listView.setAdapter(simpleAdapter);<br><br>        <span class="hljs-comment">//监听当前的是配置</span><br>        listView.setOnItemClickListener(<span class="hljs-keyword">new</span> AdapterView.OnItemClickListener()<br>        {<br><br>            <span class="hljs-javadoc">/**<br>             * 当点击列表项时回调该方法 parent： ListView view：当前点击的列表项视图对象<br>             * position：当前点击的列表项的数据在适配器中的位置 id： 当前点击的列表项的数据的行号 属性<br>             * <br>             */</span><br>            <span class="hljs-annotation">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(AdapterView&lt;?&gt; parent, View view, <span class="hljs-keyword">int</span> position, <span class="hljs-keyword">long</span> id)</span><br>            </span>{<br>                <span class="hljs-comment">// 获得在模型层当中的位置，然后通过map对象获取数据</span><br>                Map&lt;String, Object&gt; map = data.get(position);<br>                Toast.makeText(appListAcitvity.<span class="hljs-keyword">this</span>, map.get(<span class="hljs-string">"icon"</span>).toString(), Toast.LENGTH_SHORT).show();<br>            }<br>        });<br><br>    }<br></code></pre>
+
+					<ul>
+						<li>4.监听列表项</li>
+					</ul>
+
+				</div>
+				<div id="wmd-preview-section-83" class="wmd-preview-section preview-content">
+
+					<h3 id="问题专区-昨晚解决">问题专区 （昨晚解决）</h3>
+
+					<blockquote>
+						<ol>
+							<li><code>getResoures()</code>; 源码继承查看。</li>
+							<li>选择器的使用。</li>
+							<li>xml解析器。 </li>
+							<li><strong>适配器的理解</strong>。</li>
+						</ol>
+					</blockquote>
+				</div>
+				<div id="wmd-preview-section-footnotes" class="preview-content"></div>
+			</div>
 		</div>
 		<!--footer-xiaobailong-->
 		<div class="footerzhu" style="bottom:;">

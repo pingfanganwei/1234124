@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+
+		<title>Xiao bailong</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mackdownCss.css" />
+		<!-- Bootstrap core CSS -->
+		<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+		<!--<link rel="stylesheet" type="text/css" href="stylesheets/mackdownCss.css"/>-->
+		<!-- Custom styles for this template -->
+		<link href="http://v3.bootcss.com/examples/starter-template/starter-template.css" rel="stylesheet">
+
+		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+		<script src="./Starter Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+		<style id="clearly_highlighting_css" type="text/css">
+			/* selection */
+			
+			html.clearly_highlighting_enabled ::-moz-selection {
+				background: rgba(246, 238, 150, 0.99);
+			}
+			html.clearly_highlighting_enabled ::selection {
+				background: rgba(246, 238, 150, 0.99);
+			}
+			/* cursor */
+			
+			html.clearly_highlighting_enabled {
+				/* cursor and hot-spot position -- requires a default cursor, after the URL one */
+				
+				cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text;
+			}
+			/* highlight tag */
+			
+			em.clearly_highlight_element {
+				font-style: inherit !important;
+				font-weight: inherit !important;
+				background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");
+				background-repeat: repeat-x;
+				background-position: top left;
+				background-size: 100% 100%;
+			}
+			/* the delete-buttons are positioned relative to this */
+			
+			em.clearly_highlight_element.clearly_highlight_first {
+				position: relative;
+			}
+			/* delete buttons */
+			
+			em.clearly_highlight_element a.clearly_highlight_delete_element {
+				display: none;
+				cursor: pointer;
+				padding: 0;
+				margin: 0;
+				line-height: 0;
+				position: absolute;
+				width: 34px;
+				height: 34px;
+				left: -17px;
+				top: -17px;
+				background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png");
+				background-repeat: no-repeat;
+				background-position: 0px 0px;
+			}
+			em.clearly_highlight_element a.clearly_highlight_delete_element:hover {
+				background-position: -34px 0px;
+			}
+			/* retina */
+			
+			@media (min--moz-device-pixel-ratio: 2),
+			(-webkit-min-device-pixel-ratio: 2),
+			(min-device-pixel-ratio: 2) {
+				em.clearly_highlight_element {
+					background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png");
+				}
+				em.clearly_highlight_element a.clearly_highlight_delete_element {
+					background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png");
+					background-size: 68px 34px;
+				}
+			}
+		</style>
+		<style type="text/css">
+			#yddContainer {
+				display: block;
+				font-family: Microsoft YaHei;
+				position: relative;
+				width: 100%;
+				height: 100%;
+				top: -4px;
+				left: -4px;
+				font-size: 12px;
+				border: 1px solid
+			}
+			#yddTop {
+				display: block;
+				height: 22px
+			}
+			#yddTopBorderlr {
+				display: block;
+				position: static;
+				height: 17px;
+				padding: 2px 28px;
+				line-height: 17px;
+				font-size: 12px;
+				color: #5079bb;
+				font-weight: bold;
+				border-style: none solid;
+				border-width: 1px
+			}
+			#yddTopBorderlr .ydd-sp {
+				position: absolute;
+				top: 2px;
+				height: 0;
+				overflow: hidden
+			}
+			.ydd-icon {
+				left: 5px;
+				width: 17px;
+				padding: 0px 0px 0px 0px;
+				padding-top: 17px;
+				background-position: -16px -44px
+			}
+			.ydd-close {
+				right: 5px;
+				width: 16px;
+				padding-top: 16px;
+				background-position: left -44px
+			}
+			#yddKeyTitle {
+				float: left;
+				text-decoration: none
+			}
+			#yddMiddle {
+				display: block;
+				margin-bottom: 10px
+			}
+			.ydd-tabs {
+				display: block;
+				margin: 5px 0;
+				padding: 0 5px;
+				height: 18px;
+				border-bottom: 1px solid
+			}
+			.ydd-tab {
+				display: block;
+				float: left;
+				height: 18px;
+				margin: 0 5px -1px 0;
+				padding: 0 4px;
+				line-height: 18px;
+				border: 1px solid;
+				border-bottom: none
+			}
+			.ydd-trans-container {
+				display: block;
+				line-height: 160%
+			}
+			.ydd-trans-container a {
+				text-decoration: none;
+			}
+			#yddBottom {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 22px;
+				line-height: 22px;
+				overflow: hidden;
+				background-position: left -22px
+			}
+			.ydd-padding010 {
+				padding: 0 10px
+			}
+			#yddWrapper {
+				color: #252525;
+				z-index: 10001;
+				background: url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);
+			}
+			#yddContainer {
+				background: #fff;
+				border-color: #4b7598
+			}
+			#yddTopBorderlr {
+				border-color: #f0f8fc
+			}
+			#yddWrapper .ydd-sp {
+				background-image: url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)
+			}
+			#yddWrapper a,
+			#yddWrapper a:hover,
+			#yddWrapper a:visited {
+				color: #50799b
+			}
+			#yddWrapper .ydd-tabs {
+				color: #959595
+			}
+			.ydd-tabs,
+			.ydd-tab {
+				background: #fff;
+				border-color: #d5e7f3
+			}
+			#yddBottom {
+				color: #363636
+			}
+			#yddWrapper {
+				min-width: 250px;
+				max-width: 400px;
+			}
+		</style>
+		<style>
+			[touch-action="none"] {
+				-ms-touch-action: none;
+				touch-action: none;
+			}
+			[touch-action="pan-x"] {
+				-ms-touch-action: pan-x;
+				touch-action: pan-x;
+			}
+			[touch-action="pan-y"] {
+				-ms-touch-action: pan-y;
+				touch-action: pan-y;
+			}
+			[touch-action="scroll"],
+			[touch-action="pan-x pan-y"],
+			[touch-action="pan-y pan-x"] {
+				-ms-touch-action: pan-x pan-y;
+				touch-action: pan-x pan-y;
+			}
+		</style>
+	</head>
+
+	<body style="zoom: 1;">
+		<nav class="navbar navbar-inverse navbar-fixed-top" style="height:50px;">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Xiao bailong</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../Xiaobailong.html">Xiao bailong</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="../Item.html">目录</a></li>
+						<li><a href="#">---</a></li>
+						<li><a href="../About.html">About</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</nav>
+		<!-- 播客主体-->
+
+		<div class="container" style="width: 800px ;">
+			<div id='preview-contents' class='note-content'>
+				<div id="wmd-preview" class="preview-content"></div>
+				<div id="wmd-preview-section-1" class="wmd-preview-section preview-content">
+
+				</div>
+				<div id="wmd-preview-section-66" class="wmd-preview-section preview-content">
+
+					<h1 id="安卓基础">安卓基础01</h1></div>
+				<div id="wmd-preview-section-15" class="wmd-preview-section preview-content">
+
+					<h3 id="sdk-system-images"><strong>SDK System images</strong></h3>
+
+					<pre class="prettyprint hljs-dark"><code class="hljs stylus">这是在创建模拟器时需要的system image，也就是在创建模拟器时CPU/ABI项需要选择的，下载并解压后，将解压出的整个文件夹复制或者移动到 your sdk 路径/system-images文件夹下即可， 如果没有 system-images目录就先 创建此文件夹，然后打开SDK Manager，打开<span class="hljs-function"><span class="hljs-title">Tools</span><span class="hljs-params">(工 具)</span></span>菜单选择<span class="hljs-function"><span class="hljs-title">Options</span><span class="hljs-params">(选项)</span></span>菜单项打开Android SDK Manager Setting对话框，点击Clear <span class="hljs-function"><span class="hljs-title">Cache</span><span class="hljs-params">(清除缓存)</span></span> 按钮，然后重启<span class="hljs-function"><span class="hljs-title">Eclipse</span><span class="hljs-params">( 或Android Studio)</span></span>和SDK Manager。<br><br></code></pre>
+
+				</div>
+				<div id="wmd-preview-section-16" class="wmd-preview-section preview-content">
+
+					<h3 id="sdk"><strong>SDK</strong></h3>
+
+					<pre class="prettyprint hljs-dark"><code class="hljs stylus">这是Android开发所需的sdk，下载并解压后，将解压出的整个文件夹复制或者移动到your sdk 路径/platforms文件夹，然后打开SDK Manager，打开 <span class="hljs-function"><span class="hljs-title">Tools</span><span class="hljs-params">(工具)</span></span>菜单选择<span class="hljs-function"><span class="hljs-title">Options</span><span class="hljs-params">(选项)</span></span>菜单项打开 Android SDK Manager Setting对话 框，点击Clear <span class="hljs-function"><span class="hljs-title">Cache</span><span class="hljs-params">(清除缓存)</span></span>按钮，然 后重启<span class="hljs-function"><span class="hljs-title">Eclipse</span><span class="hljs-params">(或Android Studio)</span></span>和SDK Manager。<br><br></code></pre>
+
+				</div>
+				<div id="wmd-preview-section-17" class="wmd-preview-section preview-content">
+
+					<h3 id="adb-安卓调试桥-dos窗口里面"><strong>ADB</strong> 安卓调试桥  dos窗口里面</h3>
+
+					<ul>
+						<li><code>abd devices</code> 查看安卓设备，启动。然后</li>
+						<li><code>adb kill -server</code> 断开abd链接</li>
+						<li><code>adb install xxxx.apk</code> 安装apk</li>
+						<li><code>adb uninstall com.cn.zhulang</code></li>
+						<li><code>adb -s 加设备名称和端口号</code>，多个模拟器的时候adb的设置</li>
+						<li>
+							<p><code>adb sell</code> 进入shell命令模式</p>
+
+							<p><strong>安装APK</strong></p>
+						</li>
+					</ul>
+
+					<blockquote>
+						<p>运用adb工具把apk包上传到模拟器（真机）中，目录在data\app\
+							<br> 读取androidManifest.xml清单文件（包名、权限、图标等） 创建文件夹，在data\data\目录下创建以包名为文件夹的目录
+							<br> 写入注册表, 注册表文件data\system\packages.xml</p>
+					</blockquote>
+
+					<p><strong>启动APK</strong></p>
+
+					<blockquote>
+						<p>Android系统是一个多用户的Linux系统，应用一旦安装，系统为每个应用分配一个独立的Linux用户ID，当用户点击应用程序图标或者导航到该应用的组件时，Android框架会创建一个虚拟机实例，开启一个进程，创建一个主线程(UI线程)，再实例化入口组件，进入组件的生命周期</p>
+					</blockquote>
+
+					<p>linux会给每一个程序分配一个id、根据用户的权限来驱动分配</p>
+
+				</div>
+				<div id="wmd-preview-section-18" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-xml hljs">   <span class="hljs-tag">&lt;<span class="hljs-title">package</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"cn.zlpro.firstname"</span> <span class="hljs-attribute">codePath</span>=<span class="hljs-value">"/data/app/cn.zlpro.firstname-2.apk"</span> <br>        <span class="hljs-attribute">nativeLibraryPath</span>=<span class="hljs-value">"/data/app-lib/cn.zlpro.firstname-2"</span> <br>        <span class="hljs-attribute">flags</span>=<span class="hljs-value">"572998"</span> <span class="hljs-attribute">ft</span>=<span class="hljs-value">"14f1c6d95e0"</span> <br>        <span class="hljs-attribute">it</span>=<span class="hljs-value">"14f1c6864d2"</span> <span class="hljs-attribute">ut</span>=<span class="hljs-value">"14f1c6d9780"</span> <br>        <span class="hljs-attribute">version</span>=<span class="hljs-value">"1"</span> <span class="hljs-attribute">userId</span>=<span class="hljs-value">"10055"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-title">sigs</span> <span class="hljs-attribute">count</span>=<span class="hljs-value">"1"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-title">cert</span> <span class="hljs-attribute">index</span>=<span class="hljs-value">"3"</span> /&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-title">sigs</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-title">perms</span> /&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-title">signing-keyset</span> <span class="hljs-attribute">identifier</span>=<span class="hljs-value">"1"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-title">package</span>&gt;</span><br></code></pre>
+
+					<p>卸载包名为com.cn.zhulang的apk
+						<br> 有时候adb无法重启，我们断开一下，在连接就可以了。第二可能就是端口被占有了，因为adb是通过
+						<code>socket</code>连接的，那么我们，<code>netstat -ano</code>查看网络状态。 然后关闭相应的程序，在此连接就可以了。</p>
+
+				</div>
+				<div id="wmd-preview-section-19" class="wmd-preview-section preview-content">
+
+					<h3 id="点击事件的几种方法">点击事件的几种方法：</h3>
+
+					<ol>
+						<li>匿名内部内</li>
+					</ol>
+
+				</div>
+				<div id="wmd-preview-section-20" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-java hljs">        Button btn  = (Button)<span class="hljs-keyword">this</span>.findViewById(R.id.button1);<br><br>        btn.setOnClickListener(<span class="hljs-keyword">new</span> OnClickListener()<br>        {<br><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span><br>            </span>{<br>                Toast.makeText(Clickactivity.<span class="hljs-keyword">this</span>, <span class="hljs-string">"匿名内部类"</span>, Toast.LENGTH_SHORT);<br>            }<br>        });<br></code></pre>
+
+					<p>2.私有类</p>
+
+				</div>
+				<div id="wmd-preview-section-21" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-java hljs">    Button proBtn = (Button)<span class="hljs-keyword">this</span>.findViewById(R.id.button2);<br>    proBtn.setOnClickListener(<span class="hljs-keyword">new</span> myOnClickListener());<br><br>    }<br>    <span class="hljs-comment">//通过实现OnClickListener接口</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">myOnClickListener</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OnClickListener</span><br>    </span>{<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span><br>        </span>{<br>            Toast.makeText(Clickactivity.<span class="hljs-keyword">this</span>,<span class="hljs-string">"内部类"</span>, Toast.LENGTH_SHORT);<br>        }<br>    }<br></code></pre>
+
+					<ol>
+						<li>Activity实现View.OnClickListener. 接口然后重写<code>onclick</code>方法</li>
+					</ol>
+
+				</div>
+				<div id="wmd-preview-section-22" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-comment">//重写 onClick方法  这里的V就是当前加载的试图。</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span><br>    </span>{<br>        <span class="hljs-keyword">switch</span> (v.getId())<br>        {<br>        <span class="hljs-keyword">case</span> R.id.button1: System.out.println(<span class="hljs-string">"点击button按钮"</span>);<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> R.id.button2: System.out.println(<span class="hljs-string">"点击button2按钮"</span>);<br>        <span class="hljs-keyword">default</span>:<br>            <span class="hljs-keyword">break</span>;<br>        }<br>    }<br></code></pre>
+
+					<ol>
+						<li>通过控件的<code>onClick</code>属性，设置方法，在<code>Activity</code>里写公用点击事件方法。和第三种类似</li>
+					</ol>
+
+				</div>
+				<div id="wmd-preview-section-23" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">myOnClick</span><span class="hljs-params">(View v)</span><br>    </span>{<br>        System.out.println(<span class="hljs-string">"你通过Xml属性设置的单击事件"</span>);<br>    }<br></code></pre>
+
+				</div>
+				<div id="wmd-preview-section-24" class="wmd-preview-section preview-content">
+
+					<h3 id="四大组件activity">四大组件activity</h3>
+
+					<blockquote>
+						<p>唯一能够展示界面的。
+							<br> 展示界面：通过
+							<code>windows.setContentView()</code>展示
+							<br> 交互：
+							<code>View</code>捕获事件。 windowsManager </p>
+					</blockquote>
+
+					<p><strong>View</strong>：用户接口组件的基本模块， 负责图形界面的渲染和事件处理。， </p>
+
+					<blockquote>
+						<p><code>set Visibility</code> visble：可见</p>
+					</blockquote>
+
+				</div>
+				<div id="wmd-preview-section-25" class="wmd-preview-section preview-content">
+
+					<h3 id="布局"><strong>布局</strong></h3>
+
+					<p>relaviteLayout布局</p>
+
+					<p>设置一打砖块的游戏，</p>
+
+					<p>3.<strong>查看安卓的类的继承图谱</strong></p>
+				</div>
+				<div id="wmd-preview-section-footnotes" class="preview-content"></div>
+			</div>
+		</div>
+		<!--footer-xiaobailong-->
+		<div class="footerzhu" style="bottom:;">
+			<section class="dibu">
+				<p class="pull-right">QQ：846650266，电话：15117424475</p>
+				<p class="">© 白龙工作室 |隐私条款 |服务条款 |盘ICP备10000000号-1</p>
+
+			</section>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="./Starter Template for Bootstrap_files/jquery.min.js"></script>
+		<script src="./Starter Template for Bootstrap_files/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="./Starter Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+
+	</body>
+
+</html>

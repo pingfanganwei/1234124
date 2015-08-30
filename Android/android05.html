@@ -12,10 +12,10 @@
 		<link rel="icon" href="http://v3.bootcss.com/favicon.ico">
 
 		<title>Xiao bailong</title>
-		<link rel="stylesheet" type="text/css" href="stylesheets/mackdownCss.css" />
+		<link rel="stylesheet" type="text/css" href="../stylesheets/mackdownCss.css" />
 		<!-- Bootstrap core CSS -->
 		<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
+		<!--<link rel="stylesheet" type="text/css" href="stylesheets/mackdownCss.css"/>-->
 		<!-- Custom styles for this template -->
 		<link href="http://v3.bootcss.com/examples/starter-template/starter-template.css" rel="stylesheet">
 
@@ -253,13 +253,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="Xiaobailong.html">Xiao bailong</a>
+					<a class="navbar-brand" href="../Xiaobailong.html">Xiao bailong</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="Item.html">目录</a></li>
+						<li class="active"><a href="../Item.html">目录</a></li>
 						<li><a href="#">---</a></li>
-						<li><a href="About.html">About</a></li>
+						<li><a href="../About.html">About</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -268,7 +268,120 @@
 		<!-- 播客主体-->
 
 		<div class="container" style="width: 800px ;">
+			<div id='preview-contents' class='note-content'>
+				<div id="wmd-preview" class="preview-content"></div>
+				<div id="wmd-preview-section-24" class="wmd-preview-section preview-content">
 
+				</div>
+				<div id="wmd-preview-section-116" class="wmd-preview-section preview-content">
+
+					<h1 id="day05-安卓基础">Day05 安卓基础</h1>
+
+					<p></p>
+
+					<hr>
+
+					<p>今天获取的许多东西都是从<code>Context</code>对象里面获取的。</p>
+
+					<blockquote>
+						<p><code>Environment</code></p>
+					</blockquote>
+				</div>
+				<div id="wmd-preview-section-82" class="wmd-preview-section preview-content">
+
+					<h3 id="问题"><strong>问题</strong></h3>
+
+					<ol>
+						<li>Docs文档打开太慢？（完成）</li>
+						<li>文件读写操作<code>FileOut(in)putStream``Context</code>获取文件读取流。（完成）</li>
+						<li>单独研究<code>Context</code>源码（完成一部分后面保持继续）</li>
+						<li>通知（完成）</li>
+						<li>手机内存（外存）存储</li>
+						<li>用户登录 </li>
+						<li><code>package android.os</code></li>
+					</ol>
+
+				</div>
+				<div id="wmd-preview-section-83" class="wmd-preview-section preview-content">
+
+					<h2 id="问题解决">问题解决</h2>
+
+					<p><strong>5。通知</strong></p>
+
+					<blockquote>
+						<p>通知理解：用到<code>Notification</code>类，而改类继续使用构造器来构造该类， 图标必须设置，如果要<strong>自定义通知</strong>需要用到<code>RemoteViews</code>远程视图类，如果需要设置单机以后的意图<code>PendingIntent</code>的远程意图，在构建到构建器当中</p>
+					</blockquote>
+
+				</div>
+				<div id="wmd-preview-section-84" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-java hljs">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifi</span><span class="hljs-params">(View v)</span><br>    </span>{<br>        Notification.Builder builder = <span class="hljs-keyword">new</span> Notification.Builder(context);<br>        builder.setAutoCancel(<span class="hljs-keyword">true</span>);<span class="hljs-comment">// 自动取消</span><br>        builder.setContentTitle(<span class="hljs-string">"内容标题"</span>);<br>        builder.setContentText(<span class="hljs-string">"内容格式"</span>);<br>        builder.setTicker(<span class="hljs-string">"班级重要通知"</span>);<br>        builder.setSmallIcon(R.drawable.emoji_080); <span class="hljs-comment">// 必须设置，不然会谈不出来</span><br>        builder.setDefaults(Notification.DEFAULT_SOUND);<br>        builder.setWhen(System.currentTimeMillis());<span class="hljs-comment">// 设置通知时间</span><br><br>        <span class="hljs-comment">/*<br>         * 自己定义一个通知界面 1.定义一个远程视图,不是在该应用中展示，而是在远程的应用中展示<br>         * 值要定义了视图。Remoteviews类可以方便的设置视图里面的参数<br>         */</span><br>        RemoteViews remoteViews = <span class="hljs-keyword">new</span> RemoteViews(getPackageName(), R.layout.notifi_layout);<br>        remoteViews.setTextViewText(R.id.notifitext_tv, <span class="hljs-string">"你有一条QQ消息"</span>);<br>        builder.setContent(remoteViews);<br><br>        <span class="hljs-comment">/*<br>         * 设置单击通知以后的意图。 这里模拟的是打电话<br>         */</span><br>        Intent intent = <span class="hljs-keyword">new</span> Intent();<br>        intent.setAction(Intent.ACTION_CALL);<br>        intent.setData(Uri.parse(<span class="hljs-string">"tel://10086"</span>));<br>        <span class="hljs-javadoc">/**<br>         * 通知发送延迟意图<br>         */</span><br>        PendingIntent pendingIntent = PendingIntent.getActivity(context, <span class="hljs-number">0</span>, intent, PendingIntent.FLAG_CANCEL_CURRENT);<br>        builder.setContentIntent(pendingIntent);<br><br>        Notification notification = builder.build();<br>        <span class="hljs-comment">// 通知管理器发布 ... 获取到通知服务</span><br>        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);<br>        <span class="hljs-comment">// 发送通知</span><br>        notificationManager.notify(<span class="hljs-number">1</span>, notification);<br><br>    }<br><br><br></code></pre>
+
+					<p>&gt;</p>
+
+					<blockquote>
+						<p>“</p>
+					</blockquote>
+
+				</div>
+				<div id="wmd-preview-section-85" class="wmd-preview-section preview-content">
+
+					<h3 id="源码心得">　<strong>源码心得</strong></h3>
+
+					<ul>
+						<li>
+							<p><code>LayoutInflater</code>类</p>
+
+							<p>包 <code>package android.view</code></p>
+
+							<blockquote>
+								<p>一个<code>activity</code>在使用<code>onCreate()</code>方法调用<code>setContentView()</code>方法加载布局文件的时候，就会调用<code>LayoutInflater</code>类的实列化定义在布局对象中的每一个<code>view</code>对象。实际如<code>View layoutView = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);</code></p>
+							</blockquote>
+						</li>
+					</ul>
+
+					<hr>
+
+					<ul>
+						<li><code>Bundle</code>类，
+							<br> 包:
+						</li>
+					</ul>
+
+				</div>
+				<div id="wmd-preview-section-86" class="wmd-preview-section preview-content">
+
+					<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-keyword">package</span> android.os;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bundle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseBundle</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Cloneable</span>, <span class="hljs-title">Parcelable</span></span><br></code></pre>
+
+					<blockquote>
+						<p>主要存储字符串键和限定类型之间的映射关系</p>
+					</blockquote>
+
+					<p></p>
+					<ul>
+						<li><code>Context</code>类
+							<br> 1、它描述的是一个应用程序环境的信息，即上下文。
+							<br> 2、该类是一个抽象(abstract class)类，Android提供了该抽象类的具体实现类(后面我们会讲到是ContextIml类)。
+							<br> 3、通过它我们可以获取应用程序的资源和类，也包括一些应用级别操作，例如：启动一个Activity，发送广播，接受Intent
+							<br> 信息 等。。
+							<br>
+						</li>
+					</ul>
+					<p></p>
+
+					<blockquote>
+						<p>里面封装了许多抽象类，如获取服务管理器等等。
+							<br>
+							<strong>里面字段</strong>前面第一个大写单词一般就是在我们用到的变量名字：如<code>MODE_APPEND</code>，MODE代表的就是创建和打开文件的方式。
+							<br>
+							<strong>里面类</strong>
+						</p>
+						<li><code>package android.os;</code>该包的主要作用</li>
+						<p></p>
+					</blockquote>
+				</div>
+				<div id="wmd-preview-section-footnotes" class="preview-content"></div>
+			</div>
 		</div>
 		<!--footer-xiaobailong-->
 		<div class="footerzhu" style="bottom:;">

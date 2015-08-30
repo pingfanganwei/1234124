@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>Day08+09-意图-24+35天</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'></head><body><div id='preview-contents' class='note-content'>
+                        <div id="wmd-preview" class="preview-content"></div>
+                    <div id="wmd-preview-section-551" class="wmd-preview-section preview-content">
+
+</div><div id="wmd-preview-section-596" class="wmd-preview-section preview-content">
+
+<h3 id="day0809-意图-2435天">Day08+09-意图-24+35天</h3>
+
+<p></p>
+
+<hr>
+
+<ol><li><code>Activity</code> 生命周期方法</li>
+</ol>
+
+<blockquote>
+  <pre class="prettyprint hljs-dark"><code class="hljs stylus">  - <span class="hljs-function"><span class="hljs-title">onCreate</span><span class="hljs-params">()</span></span>： 创建方法<br>     - <span class="hljs-function"><span class="hljs-title">onStart</span><span class="hljs-params">()</span></span>: 开始方法<br>     - <span class="hljs-function"><span class="hljs-title">onResume</span><span class="hljs-params">()</span></span>: 获得焦点方法<br>     - <span class="hljs-function"><span class="hljs-title">onPause</span><span class="hljs-params">()</span></span>：暂停方法<br>     - <span class="hljs-function"><span class="hljs-title">onStop</span><span class="hljs-params">()</span></span>：停止方法<br>     - <span class="hljs-function"><span class="hljs-title">onRestart</span><span class="hljs-params">()</span></span> ：重新启动方法<br>     - <span class="hljs-function"><span class="hljs-title">onDestroy</span><span class="hljs-params">()</span></span>:销毁方法<br>  <br></code></pre>
+</blockquote>
+
+<p>1.堆栈，进程栈，进程等级 <br>
+前台，可见，服务，后台，空，</p>
+
+<blockquote>
+  <p>服务都是一种单列的设计模式。</p>
+</blockquote>
+
+<p>全局服务</p>
+
+<ul><li>启动 <br>
+   <code>startService</code>(Activity方法)  –&gt;<code>onCreate</code>(Service的生命周期方法，当服务不存在调用，用于初始化服务)–&gt;<code>onStartCommand</code>(Service的生命周期方法) <br>
+<ul><li>交互 <br>
+<code>startService</code>（Activity方法）–&gt;<code>onStartCommand</code>(intent) :通过Intent附加数据进行交互</li>
+<li>关闭 <br>
+<code>stopService</code>（Activity方法）–&gt;<code>onDestroy</code>(服务的生命周期方法)</li></ul></li>
+</ul>
+
+<p>绑定服务</p>
+
+<p>定的服务解绑。 <br>
+    * 启动：<code>bindService</code>(Activity方法) –&gt;<code>onCreate</code>(Service为空调用)–&gt;<code>onBind</code>() <br>
+    * 交互：直接在Activity中拿到Service的实例或者Service的代理对象进行操作  <br>
+    * 关闭：<code>unBindService</code>(Activity方法)–&gt;<code>OnUnbind</code>()–&gt;<code>ondestroy</code>()</p></div><div id="wmd-preview-section-585" class="wmd-preview-section preview-content">
+
+<h3 id="问题专区"><strong>问题专区</strong></h3>
+
+<ol><li><code>Intent</code>设置活动的意义。<strong>完成</strong></li>
+<li>把近期学的东西中和到一个项目当中来。**继续中，还是没有时间。**</li>
+<li>Activity`的启动模式，测试、<strong>完成</strong></li>
+<li>四大组件的联系</li>
+<li>系统垃圾回收机制</li>
+<li>听课方式的问题。</li>
+<li>获取文件的所有函数。</li>
+<li>广播的原理<strong>理解一二</strong></li>
+</ol>
+
+<p><strong>问题解决</strong></p>
+
+<p>8.广播的原理</p>
+
+<blockquote>
+  <p>1.要在<code>AndroidManifest.xml</code>里面注册， <br>
+  2.继承<code>BroadcastReceiver</code> <br>
+  3.重写<code>public void onReceive(Context context, Intent intent)</code>方法， 然后根据意图的活动在判别不同的广播对象。我一直想不懂为什么会一直调用onReceive方法，我想应该是在系统里面注册以后就会不断的监听然后调用实现里面的方法。</p>
+</blockquote>
+
+<p><strong>注册广播接收器的过程就把是广播接收器注册到ActivityManagerService的过程</strong> <br>
+<strong>BroadcastReceive广播接收器生命周期：</strong></p>
+
+<p>生命周期只有十秒左右，如果在 onReceive() 内做超过十秒内的事情，就会报ANR(Application No Response) 程序无响应的错误信息 <br>
+它的生命周期为从回调onReceive()方法开始到该方法返回结果后结束</p>
+
+<p>9.绑定服务</p>
+
+<blockquote>
+  <p>我们可以通过一个服务的连接器，然后在服务的实现类当中的话，我们</p>
+</blockquote>
+
+</div><div id="wmd-preview-section-586" class="wmd-preview-section preview-content">
+
+<h3 id="个人体会f"><strong>个人体会f</strong></h3>
+
+<ol><li>基础原理一定要安静的研究清楚。不要着急去做出成果来，这些练习好了，对以后学习一定会有更大的帮助</li>
+</ol></div><div id="wmd-preview-section-footnotes" class="preview-content"></div></div></body></html>
